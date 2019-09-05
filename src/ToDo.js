@@ -1,6 +1,7 @@
 import React from 'react';
 import { FilterInput } from './FilterInput.js';
 import { ToDoList } from './ToDoList';
+import { AddToDo } from './AddToDo'
 import './ToDo.css';
 
 let todos = [
@@ -29,6 +30,12 @@ class ToDo extends React.Component {
         this.setState({filteredList});
     }
 
+    addItem = (newToDo) => {
+        this.state.todos.push(newToDo);
+        alert(newToDo);
+        this.changeList();
+    }
+
     render() {
 
         return (
@@ -37,8 +44,9 @@ class ToDo extends React.Component {
                 <p className='sub-title'>A place to store the things you have to do!</p>
                 <FilterInput onChange={this.changeList}></FilterInput>
                 <ToDoList todos={this.state.filteredList}></ToDoList>
-                <input type="text" placeholder='Add your to do'></input>
-                <button className="Add-button">Add</button>
+                <AddToDo onSubmit={this.addItem}></AddToDo>
+                {/* <input type="text" placeholder='Add your to do'></input>
+                <button className="Add-button">Add</button> */}
             </div>
         )
     }
