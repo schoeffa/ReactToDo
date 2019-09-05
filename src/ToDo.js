@@ -22,7 +22,7 @@ class ToDo extends React.Component {
     changeList = (filterInput) => {
         let filteredList = this.state.list;
         filteredList = filteredList.filter((text) => {
-            let filterText = text.toLowerCase();
+            let filterText = text.name.toLowerCase();
             return filterText.indexOf(filterInput.toLowerCase()) !== -1;
         })
         this.setState({filteredList});
