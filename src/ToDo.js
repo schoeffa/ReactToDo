@@ -1,21 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { FilterInput } from './FilterInput.js';
+import { ToDoList } from './ToDoList';
+
+let todos = [
+    {name: 'Walk the dog.', complete: false},
+    {name: 'Go to the store.', complete: true},
+    {name: 'Get gas.', complete: false},
+    {name: 'Wash the car.', complete: false}
+];
 
 class ToDo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            list: todos,
+            filteredList: todos
+        }
+        this.changeList = this.changeList.bind(this);
+    }
+
+    changeList = (filterInput) => {
+        let filteredList = this.state.list;
+        filteredList = filteredList.filter((text) => {
+            let filterText = text.toLowerCase();
+            return filterText.indexOf(filterInput.toLowerCase()) !== -1;
+        })
+        this.setState({filteredList});
+    }
+
     render() {
-        const toDoList = this.props.todos.map((todos) => {
-            return (
-                <li>{todos.name}</li>
-            )
-        });   
+
         return (
             <div>
                 <p id='title'>TODO List</p>
                 <p id='sub-title'>A place to store the things you have to do!</p>
-                <input type="text" placeholder='Filter your to-dos'></input>
-                <ol>
-                    {toDoList}
-                </ol>
+                <FilterInput onChange={this.changeList}></FilterInput>
+                <ToDoList todos={this.state.filteredList}></ToDoList>
                 <input type="text" placeholder='Add your to do'></input>
                 <button>Add</button>
             </div>
