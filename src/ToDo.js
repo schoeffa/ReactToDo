@@ -1,6 +1,7 @@
 import React from 'react';
 import { FilterInput } from './FilterInput.js';
 import { ToDoList } from './ToDoList';
+import './ToDo.css';
 
 let todos = [
     {name: 'Walk the dog.', complete: false},
@@ -31,13 +32,13 @@ class ToDo extends React.Component {
     render() {
 
         return (
-            <div>
-                <p id='title'>TODO List</p>
-                <p id='sub-title'>A place to store the things you have to do!</p>
+            <div className="ToDo-app">
+                <p className='title'>TODO List</p>
+                <p className='sub-title'>A place to store the things you have to do!</p>
                 <FilterInput onChange={this.changeList}></FilterInput>
                 <ToDoList todos={this.state.filteredList}></ToDoList>
                 <input type="text" placeholder='Add your to do'></input>
-                <button>Add</button>
+                <button className="Add-button">Add</button>
             </div>
         )
     }

@@ -1,19 +1,8 @@
 import React from 'react';
-
-// let todos = [
-//     {name: 'Walk the dog.', complete: false},
-//     {name: 'Go to the store.', complete: true},
-//     {name: 'Get gas.', complete: false},
-//     {name: 'Wash the car.', complete: false}
-// ];
-
+import './ToDoList.css'
 export class ToDoList extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     list: todos,
-        //     filteredList: todos
-        // }
     }
 
     filterList = (toDoFilter) => {
@@ -27,7 +16,7 @@ export class ToDoList extends React.Component {
     render() {
         const toDoList = this.props.todos.map((todos) => {
             return (
-                <li key={todos.name}>{todos.name}</li>
+                <li key={todos.name} className="List-item"><button className="Complete-button">Complete</button>{todos.name}<button className="material-icons close" ng-click="$ctrl.removeTask(item)">close</button></li>
             )
         });
 

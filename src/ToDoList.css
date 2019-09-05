@@ -1,0 +1,43 @@
+.List-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0px;
+}
+
+.material-icons {
+    position: absolute;
+    background: none;
+    border: none;
+    left: 95%;
+}
+
+.material-icons:focus {
+    outline: none;
+}
+
+.List-item:hover .material-icons {
+    color: #D72638; 
+}
+
+.Complete-button {
+    font-family: Montserrat;
+    background-color: white;
+    border: 2px solid #F22B29;
+    color: #F22B29;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 20px;
+    height: 40px;
+    width: 100px;
+    margin-left: 0px;
+}
+
+.Complete-button:focus {
+    outline: none;
+}
+
+ol {
+    padding-left: 0px;
+}
