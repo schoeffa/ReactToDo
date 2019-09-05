@@ -31,9 +31,8 @@ class ToDo extends React.Component {
     }
 
     addItem = (newToDo) => {
-        this.state.todos.push(newToDo);
-        alert(newToDo);
-        this.changeList();
+        this.state.list.push({name:newToDo, complete: false});
+        this.changeList("");
     }
 
     render() {

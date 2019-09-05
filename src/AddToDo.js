@@ -1,4 +1,5 @@
 import React from 'react';
+import './AddToDo.css';
 
 export class AddToDo extends React.Component {
     constructor(props) {
@@ -10,16 +11,16 @@ export class AddToDo extends React.Component {
         this.setState({toDoText: e.target.value});
     }
 
-    handleSubmit = () => {
+    handleClick = () => {
         this.props.onSubmit(this.state.toDoText);
     }
 
     render() {
         return (
-            <form>
-                <input type="text" placeholder='Add your to do' value={this.state.toDoText} onChange={this.handleChange}></input>
-                <button className="Add-button" onSubmit={this.handleSubmit}>Add</button>
-            </form>
+            <div>
+                <input type="text" className="Add-input"placeholder='Add your to do' value={this.state.toDoText} onChange={this.handleChange}></input>
+                <button className="Add-button" onClick={this.handleClick}>Add</button>
+            </div>
         )
     }
 }

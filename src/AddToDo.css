@@ -1,0 +1,18 @@
+.Add-button {
+    margin-top: 20px;
+    height: 2em;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: none;
+    background-color: #F49D37;
+    color: #EEE;
+    width: 100%;
+}
+
+.Add-button:focus {
+    outline: none;
+}
+
+.Add-input {
+    width: 97%;
+}
