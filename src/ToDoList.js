@@ -1,22 +1,25 @@
 import React from 'react';
 import './ToDoList.css'
+import { ToDoItem } from './ToDoItem.js'
 export class ToDoList extends React.Component {
     constructor(props) {
         super(props);
+        this.removeItem = this.removeItem.bind(this);
+        this.markComplete = this.markComplete.bind(this);
     }
 
-    filterList = (toDoFilter) => {
-        let filteredList = this.state.list;
-        filteredList = filteredList.filter((text) => {
-            return text.indexOf(toDoFilter.toLowerCase()) !== -1;
-        })
-        this.setState({filteredList});
+    removeItem = (item) => {
+        this.props.removeItem(item);
+    }
+
+    markComplete = (item) => {
+        this.props.markComplete(item);
     }
 
     render() {
-        const toDoList = this.props.todos.map((todos) => {
+        const toDoList = this.props.todos.map((todos, index) => {
             return (
-                <li key={todos.name} className="List-item"><button className="Complete-button">Complete</button>{todos.name}<button className="material-icons close" ng-click="$ctrl.removeTask(item)">close</button></li>
+                <ToDoItem key={index} item={todos} removeItem={this.removeItem} markComplete={this.markComplete}></ToDoItem>
             )
         });
 

@@ -41,3 +41,11 @@
 ol {
     padding-left: 0px;
 }
+
+.Complete .Complete-button {
+    display: none;
+}
+
+.Complete {
+    text-decoration: line-through;
+}
