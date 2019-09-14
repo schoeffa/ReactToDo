@@ -16,7 +16,8 @@ class ToDo extends React.Component {
         super(props);
         this.state = {
             list: todos,
-            filteredList: todos
+            filteredList: todos,
+            filterText: ''
         }
         this.changeList = this.changeList.bind(this);
         this.addItem = this.addItem.bind(this);
@@ -30,7 +31,7 @@ class ToDo extends React.Component {
             let filterText = text.name.toLowerCase();
             return filterText.indexOf(filterInput.toLowerCase()) !== -1;
         })
-        this.setState({filteredList});
+        this.setState({filterText: filterInput, filteredList: filteredList});
     }
 
     addItem = (newToDo) => {
@@ -39,6 +40,7 @@ class ToDo extends React.Component {
             let list = this.state.list;
             list.push({index:index, name:newToDo, complete: false});
             this.setState({list: list});
+            this.changeList(this.state.filterText);
         }
     }
 
