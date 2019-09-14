@@ -20,7 +20,7 @@ export class ToDoItem extends React.Component {
         return (
             <li className={className}>
                 <button className="Complete-button" onClick={this.handleComplete}>Complete</button>
-                {this.props.item.name}
+                <p className='itemText'>{this.props.item.name}</p>
                 <button className="material-icons" onClick={this.handleClick}>close</button>
             </li>
         )

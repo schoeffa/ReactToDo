@@ -2,7 +2,8 @@
     font-family: Montserrat;
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 80vw;
+    max-height: 90vh;
     background-color: white;
     padding: 20px 30px;
     border-radius: 5px;
@@ -31,4 +32,17 @@ input {
 
 input:focus {
     outline: none;
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .ToDo-app {
+        width: 70vw;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    .ToDo-app {
+        width: 40vw;
+        max-height: none;
+    }
 }

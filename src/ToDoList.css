@@ -6,6 +6,10 @@
     margin: 5px 0px;
 }
 
+.itemText {
+    word-break: break-all;
+}
+
 .material-icons {
     position: absolute;
     background: none;
